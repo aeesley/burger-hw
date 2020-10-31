@@ -37,9 +37,9 @@ function objToSql(ob) {
 
 
 // Creating functions that will be necessary to execute the MYSQL commands in the controllers. These will help us retrieve and store data from the database.
-function selectAll();
-function insertOne();
-function updateOne();
+// function selectAll();
+// function insertOne();
+// function updateOne();
 
 
 // Object for all our SQL statement functions.
@@ -54,6 +54,7 @@ var orm = {
       });
     },
     create: function(table, cols, vals, cb) {
+      console.log('WE R IN THE ORM!~!!!')
       var queryString = "INSERT INTO " + table;
   
       queryString += " (";

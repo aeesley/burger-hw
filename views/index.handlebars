@@ -3,19 +3,20 @@
 <h2>Cats that are not sleepy!</h2>
 
 <ul>
-  {{#each cats}}
-    {{#unless sleepy}}
-      {{> cats/cat-block sleep=true}}
-    {{/unless}}
+  {{#each burgers}}
+  {{#unless devoured}}
+    <h1>{{this.burger_name}}</h1>
+    <button burgerId={{this.id}} class="devour-status">Devour</button>
+  {{/unless}}
   {{/each}}
 </ul>
 
 <h2>It's BURGER TIME!</h2>
 
 <ul>
-  {{#each burger_name}}
-    {{#if devoured}}
-      {{> burgers/burger_name devoured=false}}
+  {{#each burgers}}
+    {{#if devoured }}
+      <h1>{{this.burger_name}}</h1>
     {{/if}}
   {{/each}}
 </ul>
@@ -25,7 +26,7 @@
 
   <div class="form-group">
     <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+    <input type="text" id="burger-name" name="name">
   </div>
 
   {{!-- <div class="form-group">
@@ -36,3 +37,45 @@
 
   <button type="submit">Add New Burger</button>
 </form>
+
+<script>
+// ADDING NEW BURGER
+    $(".create-form").on("submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newBurger = {
+      name: $("#burger-name").val().trim(),
+    };
+    console.log("about to do ajax!");
+    // Send the POST request.
+    $.ajax("/api/addnew", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function() {
+        console.log("added new burger!");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+  $(".devour-status").on("click", function(event) {
+    var id = $(this).attr("burgerId");
+    var devoured = true
+
+
+    // Send the PUT request.
+    $.ajax("/api/devoured/" + id, {
+      type: "PUT",
+    }).then(
+      function() {
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+
+</script>
