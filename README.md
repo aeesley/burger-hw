@@ -1,8 +1,4 @@
-# burger-hw
-
-# title
-
-Node Express Handlebars Burger Project
+# Node Express Handlebars Burger Project
 
 # description
 
@@ -30,7 +26,7 @@ Create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM 
 
 Javascript, jQuery, Node.js, MySQL, Express, Handlebars
 
-# schema
+# screenshot
 
 ![schema](./public/assets/img/burger-homepage.png)
 
