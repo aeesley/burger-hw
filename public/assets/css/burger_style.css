@@ -1,4 +1,35 @@
-.label {
-    font-weight: bold;
-    background-color: red;
-  }
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  background-color: white;
+  padding: 20px;
+  margin: 15px;
+  border: 5px solid black;
+}
+
+.input-row {
+  background-color: white;
+  padding: 20px;
+  margin: 15px;
+  border: 5px solid black;
+}
+
+/* .input-column {
+
+} */
+
+button {
+  background-color: green;
+  color: white;
+  padding: 10px;
+}
+
+#submit-button {
+  margin: 20px;
+  background-color: tomato;
+  color: white;
+  padding: 10px;
+}
